@@ -53,7 +53,7 @@ class Table {
   renderRow({week, weightInKg, pricePrKg}) {
     return `
       <tr>
-        <td>${week}</td>
+        <td>${week.replace('U', ' Uke ')}</td>
         <td class="text-right">${weightInKg.toLocaleString('nb')}</td>
         <td class="text-right">${pricePrKg.toLocaleString('nb')}</td>
       </tr>
@@ -62,29 +62,31 @@ class Table {
 
   render() {
     const { rows, sortBy, sortOrder } = this.props;
+    const sortByClassName = `sort-by-${sortOrder.toLowerCase()}`;
+    const sortByAria = `aria-sort="${sortOrder.toLowerCase()}"`;
     return `
       <thead>
         <tr>
-          <th>
+          <th ${sortBy === 'week' ? sortByAria : ''}>
             <button
               data-key="week"
-              class="${sortBy === 'week' ? `sort-by-${sortOrder.toLowerCase()}` : ''}"
+              class="${sortBy === 'week' ? sortByClassName : ''}"
             >
               Uke
             </button>
           </th>
-          <th>
+          <th ${sortBy === 'weightInKg' ? sortByAria : ''}>
             <button
               data-key="weightInKg"
-              class="${sortBy === 'weightInKg' ? `sort-by-${sortOrder.toLowerCase()}` : ''}"
+              class="${sortBy === 'weightInKg' ? sortByClassName : ''}"
             >
               Vekt (tonn)
             </button>
           </th>
-          <th>
+          <th ${sortBy === 'pricePrKg' ? sortByAria : ''}>
             <button
               data-key="pricePrKg"
-              class="${sortBy === 'pricePrKg' ? `sort-by-${sortOrder.toLowerCase()}` : ''}"
+              class="${sortBy === 'pricePrKg' ? sortByClassName : ''}"
             >
               Kilopris (kr)
             </button>
