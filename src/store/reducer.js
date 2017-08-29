@@ -13,8 +13,10 @@ function populateTable(state, { payload }) {
 }
 
 function sortTable(state, { payload }) {
+  const { sortBy, sortOrder } = payload;
   return Object.assign({}, state, {
-    freshFishExport: sort(state.freshFishExport, payload.sortBy, payload.sortOrder)
+    freshFishExport: sort(state.freshFishExport, sortBy, sortOrder),
+    sortBy, sortOrder
   });
 }
 

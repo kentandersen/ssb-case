@@ -23,5 +23,8 @@
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-uglify": "^2.0.1",
     "serve-static": "^1.12.4"
+  },
+  "dependencies": {
+    "delegate": "^3.1.3"
   }
 }

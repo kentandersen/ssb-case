@@ -1,18 +1,28 @@
 import { getFreshExports } from './service';
-import table from './table/table';
 import { getState, dispatch, subscribe } from './store/store';
+
+import Table from './table/table';
 
 const rootEl = document.querySelector('main');
 
-function render(getState) {
-  const { freshFishExport } = getState();
-  rootEl.innerHTML = table({
-    rows: freshFishExport
+const { freshFishExport, sortBy, sortOrder } = getState();
+
+const table = new Table({
+  rows: freshFishExport,
+  sortBy, sortOrder
+});
+
+rootEl.appendChild(table.el);
+
+function update(getState) {
+  const { freshFishExport, sortBy, sortOrder } = getState();
+  table.setProps({
+    rows: freshFishExport,
+    sortBy, sortOrder
   });
 }
 
-render(getState);
-subscribe(render);
+subscribe(update);
 
 getFreshExports().then(payload => dispatch({
   type: 'POPULATE',
