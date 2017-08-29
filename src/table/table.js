@@ -1,15 +1,15 @@
-function renderRow({week, pricePrKg, weight}) {
+function renderRow({week, weightInKg, pricePrKg}) {
   return `
     <tr>
       <td>${week}</td>
-      <td>${weight}</td>
+      <td>${weightInKg}</td>
       <td>${pricePrKg}</td>
     </tr>
   `;
 }
 
 
-export default function render(data) {
+export default function render({rows}) {
   return `
     <table>
       <thead>
@@ -20,7 +20,7 @@ export default function render(data) {
         </tr>
       </thead>
       <tbody>
-        ${data.map(renderRow).join('')}
+        ${rows.map(renderRow).join('')}
       </tbody>
     </table>
   `;
