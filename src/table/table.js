@@ -53,25 +53,40 @@ class Table {
     return `
       <tr>
         <td>${week}</td>
-        <td>${weightInKg}</td>
-        <td>${pricePrKg}</td>
+        <td class="text-right">${weightInKg.toLocaleString('nb')}</td>
+        <td class="text-right">${pricePrKg.toLocaleString('nb')}</td>
       </tr>
     `;
   }
 
   render() {
-    const { rows } = this.props;
+    const { rows, sortBy, sortOrder } = this.props;
     return `
       <thead>
         <tr>
           <th>
-            <button data-key="week">Uke</button>
+            <button
+              data-key="week"
+              class="${sortBy === 'week' ? `sort-by-${sortOrder.toLowerCase()}` : ''}"
+            >
+              Uke
+            </button>
           </th>
           <th>
-            <button data-key="weightInKg">Vekt (tonn)</button>
+            <button
+              data-key="weightInKg"
+              class="${sortBy === 'weightInKg' ? `sort-by-${sortOrder.toLowerCase()}` : ''}"
+            >
+              Vekt (tonn)
+            </button>
           </th>
           <th>
-            <button data-key="pricePrKg">Kilopris (kr)</button>
+            <button
+              data-key="pricePrKg"
+              class="${sortBy === 'pricePrKg' ? `sort-by-${sortOrder.toLowerCase()}` : ''}"
+            >
+              Kilopris (kr)
+            </button>
           </th>
         </tr>
       </thead>

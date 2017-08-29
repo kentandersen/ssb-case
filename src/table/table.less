@@ -18,11 +18,35 @@ table {
       line-height: inherit;
       font-size: inherit;
       font-weight: inherit;
-      padding: 0;
+      padding: 0 1rem 0 0;
       border: none;
       background: transparent;
       display: block;
-      width: 100%
+      width: 100%;
+      position: relative;
+
+      &.sort-by-acending::after,
+      &.sort-by-decending::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin-top: -0.25rem;
+        display: block;
+        border: 0.5rem solid transparent;
+        width: 0;
+        height: 0;
+      }
+
+      &.sort-by-acending::after {
+        border-top-color: #808080;
+        border-bottom: none;
+      }
+
+      &.sort-by-decending::after {
+        border-bottom-color: #808080;
+        border-top: none;
+      }
     }
   }
 }
