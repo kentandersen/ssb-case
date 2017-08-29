@@ -10,6 +10,7 @@ function getSortOrder(currentSortBy, sortBy, sortOrder) {
 }
 
 const defaultProps = {
+  sortOrder: 'ACENDING',
   rows: []
 };
 

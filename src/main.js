@@ -7,10 +7,7 @@ const rootEl = document.querySelector('main');
 
 const { freshFishExport, sortBy, sortOrder } = getState();
 
-const table = new Table({
-  rows: freshFishExport,
-  sortBy, sortOrder
-});
+const table = new Table();
 
 rootEl.appendChild(table.el);
 
