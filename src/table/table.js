@@ -72,7 +72,7 @@ class Table {
               data-key="week"
               class="${sortBy === 'week' ? sortByClassName : ''}"
             >
-              Uke
+              <span class="visually-hidden">Sorter etter</span> Uke
             </button>
           </th>
           <th ${sortBy === 'weightInKg' ? sortByAria : ''}>
@@ -80,7 +80,7 @@ class Table {
               data-key="weightInKg"
               class="${sortBy === 'weightInKg' ? sortByClassName : ''}"
             >
-              Vekt (tonn)
+              <span class="visually-hidden">Sorter etter</span> Vekt (tonn)
             </button>
           </th>
           <th ${sortBy === 'pricePrKg' ? sortByAria : ''}>
@@ -88,7 +88,7 @@ class Table {
               data-key="pricePrKg"
               class="${sortBy === 'pricePrKg' ? sortByClassName : ''}"
             >
-              Kilopris (kr)
+              <span class="visually-hidden">Sorter etter</span> Kilopris (kr)
             </button>
           </th>
         </tr>
